@@ -28,7 +28,7 @@ class ProductController extends Controller
         );
     }
 
-    public function productCategory($category_id)
+    public function productCategory($category_i
     {
         $category = Categories::find($category_id);
 

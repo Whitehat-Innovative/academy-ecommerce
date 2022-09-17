@@ -25,15 +25,22 @@ class AuthController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
+
+        $token = $request->createToken('token-name');
+
         return response()->json([
             'message' => "Created Successfully",
-            'user' => $user
+            'user' => $user,
+             'token' => $token->plainTextToken
         ]);
 
 
     }
 
+
+
     public function login(Request $request)
+
     {
         $request->validate([
             'email' => 'required',
@@ -48,9 +55,13 @@ class AuthController extends Controller
                 'message' => 'Incorrect crendentials'
             ]);
         }
+
+        $token = $request->createToken('token-name');
+
         return response()->json([
             'success'=>true,
-            'user'=>Auth::user()
+            'user'=>Auth::user(),
+            'token' => $token->plainTextToken,
         ]);
     }
 }

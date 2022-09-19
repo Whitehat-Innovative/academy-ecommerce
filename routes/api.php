@@ -22,15 +22,8 @@ Route::post('/register', 'Api\AuthController@register');
 Route::post('/login', 'Api\AuthController@login');
 
 Route::middleware(['auth:sanctum'])->group(function () {
-
-
-Route::post('/logout', 'Api\AuthController@logout');
-Route::get('/all-products', 'Api\ProductController@index');
-Route::get('/products-detail/{id}', 'Api\ProductController@detail');
-Route::get('/get-product/{category_id}', 'Api\ProductController@productCategory');
-
-
+    Route::post('/logout', 'Api\AuthController@logout');
+    Route::get('/all-products', 'Api\ProductController@index');
+    Route::get('/products-detail/{id}', 'Api\ProductController@detail');
+    Route::get('/get-product/{category_id}', 'Api\ProductController@productCategory');
 });
-
-
-

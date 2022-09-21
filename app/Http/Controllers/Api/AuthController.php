@@ -56,7 +56,7 @@ class AuthController extends Controller
             ]);
         }
 
-        $token = $request->createToken('token-name');
+        $token = $request->user()->createToken('token-name');
 
         return response()->json([
             'success'=>true,

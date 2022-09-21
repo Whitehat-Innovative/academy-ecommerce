@@ -19,6 +19,7 @@ class AuthController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6'],
         ]);
+        
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -26,7 +27,7 @@ class AuthController extends Controller
         ]);
 
 
-        $token = $request->createToken('token-name');
+        $token = $request->user()->createToken('token-name');
 
         return response()->json([
             'message' => "Created Successfully",

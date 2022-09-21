@@ -20,6 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/register', 'Api\AuthController@register');
 Route::post('/login', 'Api\AuthController@login');
+Route::get('/get-all-products', 'Api\ProductController@index');
+
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/logout', 'Api\AuthController@logout');
